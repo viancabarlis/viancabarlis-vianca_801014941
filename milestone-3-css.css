@@ -1,0 +1,59 @@
+body {
+    font-family: Calibri;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/*styling for navigation bar*/
+.navigation {
+    display: inline-block;
+    list-style-type: none;
+    overflow: hidden;
+    width: 100%;
+    background-color: black;
+    text-align: right;
+    margin-top: 0;
+}
+.navigation a {
+    display: inline-block;
+    padding: 30px;
+    padding-right: 70px;
+    color: white;
+    text-decoration: none;
+}
+.navigation a:hover {
+    color: red;
+}
+/*styling for background (below the navigation bar)*/
+.background {
+    padding: 100px;
+    text-align: center;
+}
+/*styling for log entry in Post html*/
+#log {
+    padding: 100px;
+    text-align: center;
+}
+/*styling for blog entries in index html*/
+.row {
+    display: block;
+    text-align: center;
+    padding: 50px;
+}
+.column {
+    display: inline-block;
+    padding: 50px;
+    border-radius: 2px;
+    border-style: solid;
+}
+
+/*styling for footer*/
+.footer {
+    text-align: center;
+    background-color: darkslategrey;
+    color: white;
+    padding: 30px;
+    overflow: hidden;
+    width: 100%;
+}
