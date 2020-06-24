@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Milestone</title>
+    <link rel="stylesheet" type="text/css" href="milestone-3-css.css">
+    <script type="text/javascript" src="milestone-4-javascript.js"></script>
+</head>
+<body>
+    <ul class="navigation">
+        <a id="resizer" onclick="resizeFont()">Font resizer</a>
+        <a id="login" href="Admin/login.html">Admin Login</a>
+    </ul>
+
+    <div class="background">
+        <h2 id="title">Network-Based App Development</h2>
+        <div class="backgroundSwitch">
+            <button id="background1" onclick="changeBackground(this.id)" value="background1"><img src="background1.jpg"></button>
+            <button id="background2" onclick="changeBackground(this.id)" value="background2"><img src="background2.jpg"></button>
+            <button id="background3" onclick="changeBackground(this.id)" value="background3"><img src="background3.jpg"></button>
+        </div>
+    </div>
+
+    <div id="buttons">
+        <button type="button" id="playSlide" onclick="playSlides()">Play Slides</button>
+        <button type="button" id="stopSlide" onclick="stopSlides()">Stop Slides</button>
+    </div>
+
+    <div id="blogs">
+        <div id="blog1">Blog 1</div>
+        <div id="blog2">Blog 2</div>
+        <div id="blog3">Blog 3</div>
+        <div id="blog4">Blog 4</div>
+    </div>
+
+    <!--footer copyright-->
+    <footer class="footer">
+        <p>Copyright @ViancaBarlis</p>
+    </footer>
+</body>
+</html>
