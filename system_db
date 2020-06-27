@@ -1,0 +1,12 @@
+CREATE TABLE `employees` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `profession` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+)
+
+INSERT INTO `users ` (`first_name`, `last_name`, `profession`) VALUES
+                       ('Amy', 'Michael', 'Computer Engineer'),
+                       ('Emily', 'Jackson', 'Software Architect'),
+                       ('Joseph', 'Mark', 'Database Administrator'),
