@@ -6,6 +6,7 @@ const axiosModule = require('axios')
 const axios = axiosModule.default
 const sqlite3Handler = require('sqlite3').verbose();
 
+
 let dbHandler = new sqlite3Handler.Database('system_db', (connectionError)=>{
     if (connectionError){
         console.log(connectionError.message)
@@ -19,7 +20,6 @@ let dbHandler = new sqlite3Handler.Database('system_db', (connectionError)=>{
 expressHandler.use(corsModule())
 expressHandler.use(bodyPareser.urlencoded({extended: false}))
 expressHandler.use(bodyPareser.json()); // <--- Here
-// expressHandler.use(bodyPareser.ajax());
 // app.use(bodyParser.urlencoded({extended: true}));
 
 // List All users in the Database
@@ -41,7 +41,7 @@ expressHandler.use(bodyPareser.json()); // <--- Here
  *       '500':
  *         description: Problem communicating with db
  */
-expressHandler.get('/post', function (requestObject, responseObject){
+expressHandler.get('/users', function (requestObject, responseObject){
     dbHandler.all('SELECT * FROM users', (selectError, result)=>{
         resultObject = {'error': "", 'data': ""}
         if (selectError){
@@ -79,7 +79,7 @@ expressHandler.get('/post', function (requestObject, responseObject){
  *         description: Problem communicating with db
  */
 
-expressHandler.get('/post/:id', function (requestObject, responseObject){
+expressHandler.get('/users/:id', function (requestObject, responseObject){
     console.log('user id', requestObject.params.id)
     dbHandler.all('select * from users where userID = ?', [requestObject.params.id], (selectError, result)=>{
         resultObject = {'error': "", 'data': ""}
@@ -117,7 +117,7 @@ expressHandler.get('/post/:id', function (requestObject, responseObject){
  *       '500':
  *         description: Problem communicating with db
  */
-expressHandler.delete('/post/:id', function (requestObject, responseObject){
+expressHandler.delete('/users/:id', function (requestObject, responseObject){
     console.log(requestObject.params.id)
     dbHandler.run('delete from users where userID = ?', [requestObject.params.id], (deleteError)=>{
         resultObject = {'error': "", 'data': ""}
@@ -164,7 +164,7 @@ expressHandler.delete('/post/:id', function (requestObject, responseObject){
  *       '500':
  *         description: Problem communicating with db
  */
-expressHandler.patch('/post/:id', function (requestObject, responseObject){
+expressHandler.patch('/users/:id', function (requestObject, responseObject){
     console.log(requestObject.body)
     dbHandler.run('update users set userActive = ? where userID = ?',
         [requestObject.body.status, requestObject.body.id], (updateError)=>{
@@ -218,7 +218,7 @@ expressHandler.patch('/post/:id', function (requestObject, responseObject){
  *       '500':
  *         description: Problem communicating with db
  */
-expressHandler.put('/post/:id', function (requestObject, responseObject){
+expressHandler.put('/users/:id', function (requestObject, responseObject){
     console.log(requestObject.body)
     dbHandler.run('update users set userFullName = ?, userEmail = ? where userID = ?',
         [
@@ -272,7 +272,7 @@ expressHandler.put('/post/:id', function (requestObject, responseObject){
  *       '500':
  *         description: Problem communicating with db
  */
-expressHandler.post('/post', function (requestObject, responseObject){
+expressHandler.post('/users', function (requestObject, responseObject){
     console.log(requestObject.body)
     dbHandler.run('INSERT INTO users (userFullName, userEmail, userActive) VALUES (?,?,?)',
         [
